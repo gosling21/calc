@@ -28,7 +28,7 @@ func main() {
 	sign := string(text[operatorIndex])
 	checkSign(sign)
 	array := strings.Split(text, sign)
-	if len(array) != 2 {
+	if len(array) != 3 {
 		panic("Вывод ошибки, так как формат математической операции не удовлетворяет заданию — два операнда и один оператор (+, -, /, *).")
 	}
 	array[0] = strings.ReplaceAll(array[0], " ", "")
