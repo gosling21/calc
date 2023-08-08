@@ -28,8 +28,10 @@ func main() {
 	sign := string(text[operatorIndex])
 	checkSign(sign)
 	array := strings.Split(text, sign)
-	if len(array) != 3 {
+	if len(array) != 2 {
 		panic("Вывод ошибки, так как формат математической операции не удовлетворяет заданию — два операнда и один оператор (+, -, /, *).")
+	} else if array[1] == "" {
+		panic("Вывод ошибки, так как строка не является математической операцией.")
 	}
 	array[0] = strings.ReplaceAll(array[0], " ", "")
 	array[1] = strings.ReplaceAll(array[1], " ", "")
@@ -39,7 +41,7 @@ func main() {
 		number2 := convertToArabian(array[1])
 		finalRes := arabianCounter(number1, number2, sign)
 		if finalRes < 0 {
-			panic("Вывод ошибки, так как в римской системе нет отрицательных чисел.1")
+			panic("Вывод ошибки, так как в римской системе нет отрицательных чисел1")
 		} else {
 			fmt.Println(finalRes)
 		}
