@@ -40,10 +40,13 @@ func main() {
 		number1 := convertToArabian(array[0])
 		number2 := convertToArabian(array[1])
 		finalRes := arabianCounter(number1, number2, sign)
+		// здесь переводим финал рез в римское
+
 		if finalRes < 0 {
 			panic("Вывод ошибки, так как в римской системе нет отрицательных чисел1")
 		} else {
-			fmt.Println(finalRes)
+			romanFinal := convertToRoman(finalRes)
+			fmt.Println(romanFinal)
 		}
 	} else if (itRomanOrNot(array[0]) && itRomanOrNot(array[1])) == false {
 		fmt.Println(arabianCounter(array[0], array[1], sign))
@@ -108,4 +111,10 @@ func convertToArabian(number string) string {
 		}
 	}
 	return ""
+}
+
+func convertToRoman(number int) string {
+	stringNumber := strconv.Itoa(number)
+	stringNumber = romanArray[number]
+	return stringNumber
 }
